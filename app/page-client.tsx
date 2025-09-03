@@ -2,13 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import Concerts from '@/components/Concerts';
-import { Concert } from '@/lib/data';
+import { Concert, ContentData } from '@/lib/data';
 
 interface PageClientProps {
   concerts: Concert[];
+  content: ContentData;
 }
 
-export default function PageClient({ concerts }: PageClientProps) {
+export default function PageClient({ concerts, content }: PageClientProps) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -93,8 +94,8 @@ export default function PageClient({ concerts }: PageClientProps) {
       </header>
 
       <section className="hero-section">
-        <img src="/images/Band-Photo-2023-edited.jpg" 
-             alt="Hemel Hempstead Band 2023" 
+        <img src={content.hero.image} 
+             alt={content.hero.alt} 
              className="w-full h-64 md:h-96 lg:h-[500px] object-cover object-center" />
       </section>
 
@@ -115,30 +116,23 @@ export default function PageClient({ concerts }: PageClientProps) {
 
         <section id="about" className="py-16">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-8 text-center">About Us</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-8 text-center">{content.about.title}</h2>
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <p className="text-gray-700 leading-relaxed mb-6">
-                Hemel Hempstead Band has been at the heart of the local community for over 100 years. We are a traditional brass band that performs at local events, competitions, and concerts throughout Hertfordshire.
-              </p>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                Our repertoire spans from classical arrangements to contemporary pieces, film scores, and traditional brass band music. We pride ourselves on being an inclusive, friendly group that welcomes musicians of all abilities.
-              </p>
+              {content.about.content.split('\n\n').map((paragraph, idx) => (
+                <p key={idx} className="text-gray-700 leading-relaxed mb-6">
+                  {paragraph}
+                </p>
+              ))}
               <div className="text-center mb-6">
                 <a href="/history" className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-300 font-semibold">Learn About Our History</a>
               </div>
               <div className="grid md:grid-cols-3 gap-6 mt-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600">25+</div>
-                  <p className="text-gray-600">Active Members</p>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600">100+</div>
-                  <p className="text-gray-600">Years of History</p>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600">20+</div>
-                  <p className="text-gray-600">Annual Performances</p>
-                </div>
+                {content.about.stats.map((stat, idx) => (
+                  <div key={idx} className="text-center">
+                    <div className="text-3xl font-bold text-blue-600">{stat.number}</div>
+                    <p className="text-gray-600">{stat.label}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -146,41 +140,31 @@ export default function PageClient({ concerts }: PageClientProps) {
 
         <section id="join" className="py-16">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-8 text-center">Join Us</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-8 text-center">{content.join.title}</h2>
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-xl font-semibold text-blue-800 mb-4">Become a Member</h3>
+              <h3 className="text-xl font-semibold text-blue-800 mb-4">{content.join.subtitle}</h3>
               <p className="text-gray-700 mb-6">
-                We're always looking for new members! Whether you're a seasoned brass player or just starting out, we'd love to hear from you.
+                {content.join.description}
               </p>
               <div className="grid md:grid-cols-2 gap-6 mb-8">
                 <div className="bg-blue-50 p-6 rounded-lg">
                   <h4 className="font-semibold text-blue-900 mb-3">What We Offer</h4>
                   <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-start">
-                      <span className="text-blue-600 mr-2">✓</span>
-                      Weekly rehearsals every Thursday
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-blue-600 mr-2">✓</span>
-                      Instrument loan scheme available
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-blue-600 mr-2">✓</span>
-                      Friendly, supportive environment
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-blue-600 mr-2">✓</span>
-                      Regular performances and social events
-                    </li>
+                    {content.join.offers.map((offer, idx) => (
+                      <li key={idx} className="flex items-start">
+                        <span className="text-blue-600 mr-2">✓</span>
+                        {offer}
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 <div className="bg-blue-50 p-6 rounded-lg">
                   <h4 className="font-semibold text-blue-900 mb-3">Rehearsal Details</h4>
                   <ul className="space-y-2 text-gray-700">
-                    <li><strong>When:</strong> Thursday evenings, 7:30-9:30 PM</li>
-                    <li><strong>Where:</strong> Hemel Hempstead Community Centre</li>
-                    <li><strong>What to bring:</strong> Your instrument and music stand</li>
-                    <li><strong>First visit:</strong> Free taster session available</li>
+                    <li><strong>When:</strong> {content.join.rehearsal_details.when}</li>
+                    <li><strong>Where:</strong> {content.join.rehearsal_details.where}</li>
+                    <li><strong>What to bring:</strong> {content.join.rehearsal_details.bring}</li>
+                    <li><strong>First visit:</strong> {content.join.rehearsal_details.first_visit}</li>
                   </ul>
                 </div>
               </div>
@@ -190,37 +174,35 @@ export default function PageClient({ concerts }: PageClientProps) {
 
         <section id="contact" className="py-16">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-8 text-center">Contact</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-8 text-center">{content.contact.title}</h2>
             <div className="bg-white rounded-lg shadow-lg p-8">
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-xl font-semibold text-blue-800 mb-4">Get in Touch</h3>
+                  <h3 className="text-xl font-semibold text-blue-800 mb-4">{content.contact.subtitle}</h3>
                   <div className="space-y-4">
                     <div>
                       <p className="font-semibold text-gray-800">Email</p>
-                      <p className="text-gray-600">info@hemelhempsteadband.org.uk</p>
+                      <p className="text-gray-600">{content.contact.email}</p>
                     </div>
                     <div>
                       <p className="font-semibold text-gray-800">Phone</p>
-                      <p className="text-gray-600">01442 123456</p>
+                      <p className="text-gray-600">{content.contact.phone}</p>
                     </div>
                     <div>
                       <p className="font-semibold text-gray-800">Address</p>
-                      <p className="text-gray-600">
-                        Hemel Hempstead Community Centre<br />
-                        Paradise Lane<br />
-                        Hemel Hempstead, HP2 4TF
+                      <p className="text-gray-600" style={{whiteSpace: 'pre-line'}}>
+                        {content.contact.address}
                       </p>
                     </div>
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-blue-800 mb-4">Follow Us</h3>
-                  <p className="text-gray-700 mb-4">Stay updated with our latest news and performances on social media.</p>
+                  <h3 className="text-xl font-semibold text-blue-800 mb-4">{content.contact.social.title}</h3>
+                  <p className="text-gray-700 mb-4">{content.contact.social.description}</p>
                   <div className="flex gap-4">
-                    <a href="#" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300">Facebook</a>
-                    <a href="#" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300">Twitter</a>
-                    <a href="#" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300">Instagram</a>
+                    {content.contact.social.links.map((link, idx) => (
+                      <a key={idx} href={link.url} className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300">{link.name}</a>
+                    ))}
                   </div>
                 </div>
               </div>

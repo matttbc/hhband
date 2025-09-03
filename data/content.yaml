@@ -1,0 +1,52 @@
+hero:
+  image: "/images/Band-Photo-2023-edited.jpg"
+  alt: "Hemel Hempstead Band 2023"
+
+about:
+  title: "About Us"
+  content: |
+    Hemel Hempstead Band has been at the heart of the local community for over 100 years. We are a traditional brass band that performs at local events, competitions, and concerts throughout Hertfordshire.
+    
+    Our repertoire spans from classical arrangements to contemporary pieces, film scores, and traditional brass band music. We pride ourselves on being an inclusive, friendly group that welcomes musicians of all abilities.
+  stats:
+    - number: "25+"
+      label: "Active Members"
+    - number: "100+"
+      label: "Years of History"  
+    - number: "20+"
+      label: "Annual Performances"
+
+join:
+  title: "Join Us"
+  subtitle: "Become a Member"
+  description: "We're always looking for new members! Whether you're a seasoned brass player or just starting out, we'd love to hear from you."
+  offers:
+    - "Weekly rehearsals every Thursday"
+    - "Instrument loan scheme available"
+    - "Friendly, supportive environment"
+    - "Regular performances and social events"
+  rehearsal_details:
+    when: "Thursday evenings, 7:30-9:30 PM"
+    where: "Hemel Hempstead Community Centre"
+    bring: "Your instrument and music stand"
+    first_visit: "Free taster session available"
+
+contact:
+  title: "Contact"
+  subtitle: "Get in Touch"
+  email: "info@hemelhempsteadband.org.uk"
+  phone: "01442 123456"
+  address: |
+    Hemel Hempstead Community Centre
+    Paradise Lane
+    Hemel Hempstead, HP2 4TF
+  social:
+    title: "Follow Us"
+    description: "Stay updated with our latest news and performances on social media."
+    links:
+      - name: "Facebook"
+        url: "#"
+      - name: "Twitter" 
+        url: "#"
+      - name: "Instagram"
+        url: "#"
