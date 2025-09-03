@@ -21,25 +21,25 @@ join:
   subtitle: "Become a Member"
   description: "We're always looking for new members! Whether you're a seasoned brass player or just starting out, we'd love to hear from you."
   offers:
-    - "Weekly rehearsals every Thursday"
+    - "Weekly rehearsals every Monday evening"
     - "Instrument loan scheme available"
     - "Friendly, supportive environment"
     - "Regular performances and social events"
   rehearsal_details:
-    when: "Thursday evenings, 7:30-9:30 PM"
-    where: "Hemel Hempstead Community Centre"
-    bring: "Your instrument and music stand"
+    when: "Monday evenings, 7:45-9:45 PM"
+    where: "Apsley Mills Cottage, Paper Trail, London Road, Apsley, HP3 9RL"
+    bring: "Your instrument (or you can borrow/loan one from us)"
     first_visit: "Free taster session available"
 
 contact:
   title: "Contact"
   subtitle: "Get in Touch"
-  email: "info@hemelhempsteadband.org.uk"
+  email: "hemelhempsteadband@gmail.com"
   phone: "01442 123456"
   address: |
-    Hemel Hempstead Community Centre
-    Paradise Lane
-    Hemel Hempstead, HP2 4TF
+    Apsley Mills Cottage
+    Paper Trail, London Road
+    Apsley, HP3 9RL
   social:
     title: "Follow Us"
     description: "Stay updated with our latest news and performances on social media."
