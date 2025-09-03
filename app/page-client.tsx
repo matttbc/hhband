@@ -93,7 +93,7 @@ export default function PageClient({ concerts }: PageClientProps) {
       </header>
 
       <section className="hero-section">
-        <img src="http://www.hemelhempsteadband.co.uk/wp-content/uploads/2023/04/Band-Photo-2023-edited.jpg" 
+        <img src="/images/Band-Photo-2023-edited.jpg" 
              alt="Hemel Hempstead Band 2023" 
              className="w-full h-64 md:h-96 lg:h-[500px] object-cover object-center" />
       </section>
