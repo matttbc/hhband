@@ -106,10 +106,6 @@ export default function PageClient({ concerts, content }: PageClientProps) {
             <div className="bg-white rounded-lg shadow-lg p-8">
               <h3 className="text-xl font-semibold text-blue-800 mb-4">Upcoming Performances</h3>
               <Concerts concerts={concerts} />
-              <div className="mt-8">
-                <h3 className="text-xl font-semibold text-blue-800 mb-4">Listen Online</h3>
-                <p className="text-gray-700">Find recordings of our recent performances and rehearsals on our social media channels.</p>
-              </div>
             </div>
           </div>
         </section>

@@ -5,7 +5,7 @@ concerts:
     address: "High Street, Hemel Hempstead"
     description: "Join us for our traditional Christmas concert featuring festive favorites and seasonal music."
     price: "£10 adults, £5 children"
-    image: null
+    image: "/images/HH-Christmas.jpg"
 
   - title: "Summer Concert Series"
     date: "2025-07-06T14:00:00"  
