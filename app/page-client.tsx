@@ -96,7 +96,7 @@ export default function PageClient({ concerts, content }: PageClientProps) {
       <section className="hero-section">
         <img src={content.hero.image} 
              alt={content.hero.alt} 
-             className="w-full h-64 md:h-96 lg:h-[500px] object-cover object-center" />
+             className="w-full h-auto max-h-[600px] object-contain" />
       </section>
 
       <main className="container mx-auto px-4 py-8">
