@@ -1,0 +1,24 @@
+concerts:
+  - title: "Christmas Carol Concert"
+    date: "2024-12-15T19:30:00"
+    venue: "St Mary's Church"
+    address: "High Street, Hemel Hempstead"
+    description: "Join us for our traditional Christmas concert featuring festive favorites and seasonal music."
+    price: "£10 adults, £5 children"
+    image: null
+
+  - title: "Summer Concert Series"
+    date: "2025-07-06T14:00:00"  
+    venue: "Gadebridge Park"
+    address: "Gadebridge Park, Hemel Hempstead"
+    description: "Every Sunday in July, 2:00 PM - outdoor performances in the park. Bring a picnic!"
+    price: "Free"
+    image: null
+
+  - title: "Spring Concert"
+    date: "2025-03-22T14:30:00"
+    venue: "Hemel Hempstead Town Hall"
+    address: "Town Hall, Hemel Hempstead"
+    description: "Our annual Spring concert featuring a varied programme of light classical and popular music."
+    price: "£8 adults, £4 children"
+    image: null
