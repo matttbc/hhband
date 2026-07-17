@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Concerts from '@/components/Concerts';
 import { Concert, ContentData } from '@/lib/data';
 
@@ -94,9 +95,17 @@ export default function PageClient({ concerts, content }: PageClientProps) {
       </header>
 
       <section className="hero-section">
-        <img src={content.hero.image} 
-             alt={content.hero.alt} 
-             className="w-full h-auto max-h-[600px] object-contain" />
+        {/* priority: this is the largest-contentful-paint element, so it should
+            not be lazy-loaded like everything else below the fold. */}
+        <Image
+          src={content.hero.image}
+          alt={content.hero.alt}
+          width={1231}
+          height={772}
+          priority
+          sizes="100vw"
+          className="w-full h-auto max-h-[600px] object-contain"
+        />
       </section>
 
       <main className="container mx-auto px-4 py-8">

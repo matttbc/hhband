@@ -1,6 +1,7 @@
 'use client';
 
 import { GalleryItem } from '@/lib/data';
+import Image from 'next/image';
 import { useState } from 'react';
 
 interface GalleryClientProps {
@@ -42,11 +43,15 @@ export default function GalleryClient({ items }: GalleryClientProps) {
           {items.map((item, index) => (
             <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
                  onClick={() => setSelectedImage(item)}>
-              <img 
-                src={item.image} 
-                alt={item.title}
-                className="w-full h-64 object-cover object-top"
-              />
+              <div className="relative w-full h-64">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover object-top"
+                />
+              </div>
               <div className="p-4">
                 <h3 className="font-semibold text-gray-800 mb-2">{item.title}</h3>
                 {item.caption && (
@@ -78,7 +83,17 @@ export default function GalleryClient({ items }: GalleryClientProps) {
                         className="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
               </div>
             </div>
-            <img src={selectedImage.image} alt={selectedImage.title} className="w-full" />
+            {/* The lightbox is the one place a large render is wanted, but 1600px
+                is still far less than some of the originals. Height is nominal:
+                h-auto lets the real aspect ratio win. */}
+            <Image
+              src={selectedImage.image}
+              alt={selectedImage.title}
+              width={1600}
+              height={1200}
+              sizes="(max-width: 896px) 100vw, 896px"
+              className="w-full h-auto"
+            />
             <div className="p-4">
               {selectedImage.caption && (
                 <p className="text-gray-700 mb-2">{selectedImage.caption}</p>
