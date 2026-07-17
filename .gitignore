@@ -26,3 +26,5 @@ Thumbs.db
 
 # Scripts (temporary)
 scripts/
+# TypeScript incremental build info
+tsconfig.tsbuildinfo
